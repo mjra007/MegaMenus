@@ -114,7 +114,8 @@ final public class MIcon extends IElementImpl {
     @Override
     public MIcon copy() {
         MIcon copy = new MIcon();
-        copy.setPosition(getPosition());
+        if(getPosition()!=null)//Allow user of builder to skip setting the position in case he is intending to use the slot provider, not the most elegant solution
+            copy.setPosition(getPosition());
         copy.setParent(getParent());
         copy.defaultName = defaultName;
         copy.defaultIcon = defaultIcon;

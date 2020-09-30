@@ -197,7 +197,8 @@ final public class MButton extends IElementImpl implements IClickable<MButton>, 
     @Override
     public MButton copy() {
         MButton copy = new MButton();
-        copy.setPosition(getPosition());
+        if(getPosition()!=null)//Allow user of builder to skip setting the position in case he is intending to use the slot provider, not the most elegant solution
+            copy.setPosition(getPosition());
         copy.setParent(getParent());
         copy.defaultName = defaultName;
         copy.defaultIcon = defaultIcon;

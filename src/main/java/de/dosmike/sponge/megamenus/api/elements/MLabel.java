@@ -126,7 +126,8 @@ final public class MLabel extends IElementImpl {
     @Override
     public MLabel copy() {
         MLabel copy = new MLabel();
-        copy.setPosition(getPosition());
+        if(getPosition()!=null)//Allow user of builder to skip setting the position in case he is intending to use the slot provider, not the most elegant solution
+            copy.setPosition(getPosition());
         copy.setParent(getParent());
         copy.defaultName = defaultName;
         copy.defaultIcon = defaultIcon;

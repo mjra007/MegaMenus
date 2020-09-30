@@ -309,7 +309,8 @@ final public class MSpinner extends IElementImpl implements IClickable<MSpinner>
     public MSpinner copy() {
         MSpinner copy = new MSpinner();
         copy.defaultIcons.addAll(defaultIcons);
-        copy.setPosition(getPosition());
+        if(getPosition()!=null)//Allow user of builder to skip setting the position in case he is intending to use the slot provider, not the most elegant solution
+            copy.setPosition(getPosition());
         copy.setParent(getParent());
         copy.defaultName = defaultName;
         copy.defaultValues = new LinkedList<>(defaultValues);

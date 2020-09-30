@@ -177,7 +177,8 @@ final public class MSlot extends IElementImpl implements IInventory<MSlot> {
         public MSlot build() {
             MSlot slot = new MSlot(initial);
             slot.listener = listener;
-            slot.setPosition(pos);
+            if(pos!=null)//Allow user of builder to skip setting the position in case he is intending to use the slot provider, not the most elegant solution
+                slot.setPosition(pos);
             slot.setAccess(access);
             return slot;
         }

@@ -239,7 +239,8 @@ final public class MCheckbox extends IElementImpl implements IClickable<MCheckbo
     @Override
     public MCheckbox copy() {
         MCheckbox copy = new MCheckbox();
-        copy.setPosition(getPosition());
+        if(getPosition()!=null)//Allow user of builder to skip setting the position in case he is intending to use the slot provider, not the most elegant solution
+            copy.setPosition(getPosition());
         copy.setParent(getParent());
         copy.value = value;
         copy.defaultName = defaultName;
