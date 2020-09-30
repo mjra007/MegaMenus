@@ -27,7 +27,7 @@ import java.util.*;
  */
 public abstract class IElementImpl implements IElement {
 
-    private SlotPos pos = new SlotPos(0,0);
+    private SlotPos pos;
     private IMenu parent;
     protected UUID uiid = UUID.randomUUID();
 
